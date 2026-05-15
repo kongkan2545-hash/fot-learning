@@ -12,7 +12,7 @@ File_csv_Path = r"F:\for-learning\Data\synthetic_plant_train.csv"           #ก
 MQTT_CONFIG = {
     "BROKER" : 'broker.emqx.io',
     "PORT"   : 1883,
-    "TOPIC": "plant/env/predicted",                                               #topicต้องตรงกับSubscriberที่ตั้งไว้
+    "TOPIC": "plant/env/raw",                                               #topicต้องตรงกับSubscriberที่ตั้งไว้
     "CLIENT_ID" : f'ALPHA-I-{random.randint(0,100)}'
 }
 
