@@ -12,7 +12,7 @@ File_csv_Path = r"F:\for-learning\Data\synthetic_plant_train.csv"           #ก
 MQTT_CONFIG = {
     "BROKER" : 'broker.emqx.io',
     "PORT"   : 1883,
-    "TOPIC": "idt/plant/env",                                               #topicต้องตรงกับSubscriberที่ตั้งไว้
+    "TOPIC": "plant/env/predicted",                                               #topicต้องตรงกับSubscriberที่ตั้งไว้
     "CLIENT_ID" : f'ALPHA-I-{random.randint(0,100)}'
 }
 
@@ -24,7 +24,7 @@ def connect_mqtt():
 
 def publisher(PUBLISH_INTERVAL_SEC= 0.5):                                   #กำหนดช่วงเวลาส่งข้อมูล
     df = pd.read_csv(File_csv_Path)                                         #อ่านไฟล์
-    df = df.iloc[:10]                                                      #กำหนดให้อ่านแค่10แถวแรก
+    df = df.iloc[:100]                                                      #กำหนดให้อ่านแค่10แถวแรก
     print(f"Loaded {len(df)} rows from {File_csv_Path}")
     client = connect_mqtt()                                                 #เปิด loop เพือให้ MQTT ทํางานเบืองหลัง
     client.loop_start()                                                     #เริ่มการทำงาน
